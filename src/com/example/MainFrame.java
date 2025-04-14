@@ -19,17 +19,28 @@ public class MainFrame extends JFrame {
         naturalSounds.add(new ChillSound("sounds/雨.wav", "雨"));
         naturalSounds.add(new ChillSound("sounds/波.wav", "波"));
         naturalSounds.add(new ChillSound("sounds/風.wav", "風"));
+        naturalSounds.add(new ChillSound("sounds/水中.wav", "水中"));
 
         List<ChillSound> animalSounds = new ArrayList<>();
         animalSounds.add(new ChillSound("sounds/ウミネコ.wav", "ウミネコ"));
         animalSounds.add(new ChillSound("sounds/ツクツクボウシ.wav", "ツクツクボウシ"));
         animalSounds.add(new ChillSound("sounds/スズメ.wav", "スズメ"));
         animalSounds.add(new ChillSound("sounds/カラス.wav", "カラス"));
+        animalSounds.add(new ChillSound("sounds/ヒグラシ.wav", "ヒグラシ"));
+        animalSounds.add(new ChillSound("sounds/ミンミンゼミ.wav", "ミンミンゼミ"));
 
-        List<ChillSound> ambientSounds = new ArrayList<>();
-        ambientSounds.add(new ChillSound("sounds/風鈴.wav", "風鈴"));
-        ambientSounds.add(new ChillSound("sounds/食卓.wav", "食卓"));
-        ambientSounds.add(new ChillSound("sounds/学校の廊下.wav", "学校の廊下"));
+        List<ChillSound> livingSounds = new ArrayList<>();
+        livingSounds.add(new ChillSound("sounds/風鈴.wav", "風鈴"));
+        livingSounds.add(new ChillSound("sounds/食卓.wav", "食卓"));
+        livingSounds.add(new ChillSound("sounds/時計.wav", "時計"));
+        livingSounds.add(new ChillSound("sounds/時計（古い）.wav", "時計（古い）"));
+        
+        List<ChillSound> locationSounds = new ArrayList<>();
+        locationSounds.add(new ChillSound("sounds/学校の廊下.wav", "学校の廊下"));
+        locationSounds.add(new ChillSound("sounds/夜の繁華街.wav", "夜の繁華街"));
+        locationSounds.add(new ChillSound("sounds/街の道路.wav", "街の道路"));
+        locationSounds.add(new ChillSound("sounds/駅の改札.wav", "駅の改札"));
+        locationSounds.add(new ChillSound("sounds/電車.wav", "電車の車内"));
 
         // 横並びにカテゴリーセクションを配置するパネル
         JPanel categoriesPanel = new JPanel();
@@ -38,9 +49,11 @@ public class MainFrame extends JFrame {
         // カテゴリーのセクションを追加
         categoriesPanel.add(createCategorySection("自然", naturalSounds));
         categoriesPanel.add(Box.createRigidArea(new Dimension(20, 0)));
-        categoriesPanel.add(createCategorySection("動物の鳴き声", animalSounds));
+        categoriesPanel.add(createCategorySection("動物", animalSounds));
         categoriesPanel.add(Box.createRigidArea(new Dimension(20, 0)));
-        categoriesPanel.add(createCategorySection("その他", ambientSounds));
+        categoriesPanel.add(createCategorySection("生活", livingSounds));
+        categoriesPanel.add(Box.createRigidArea(new Dimension(20, 0)));
+        categoriesPanel.add(createCategorySection("場所", locationSounds));
 
         // 全体をスクロール可能にする（横スクロールも有効）
         JScrollPane scrollPane = new JScrollPane(categoriesPanel,
